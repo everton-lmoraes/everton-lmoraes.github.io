@@ -22,7 +22,7 @@
     --primary-bg-color: #e9e9e9;
     --secondary-bg-color: #c7c8c9;
     --primary-border-color: #c7c8c9;
-    --secondary-border-color: #c7c8c9;
+    --secondary-border-color: #9a9a9c;
 
     --title-color: #08080f;
     --text-color: #28292e;
@@ -67,6 +67,12 @@ b{
 h1{
     font-size: 2.5rem;
     font-weight: 200;
+}
+
+h2{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 h1, h2, h3{
@@ -179,9 +185,11 @@ p{
     width: 100%;
     background: transparent;
     border-radius: 3.125rem;
+    border: none;
     padding: 0.875rem 1.5rem;
     transition: ease-in-out .3s;
     cursor: pointer;
+    color: var(--primary-color);
 
 }
 
@@ -203,13 +211,14 @@ p{
     border: 1px solid var(--primary-color);
 }
 
+main, .projects{
+    padding: 2.5rem 1rem;
+}
 
 main{
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 2.5rem 1rem;
-
 }
 
 .main__content1{
@@ -242,7 +251,6 @@ main{
 .technologies__list{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
     gap: .5rem;
 }
 
@@ -263,6 +271,88 @@ main{
 
 }
 
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .projects__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  
+  .projects__card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .card__cover {
+    width: 100%;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .card__description {
+    color: var(--title-color);
+  }
+  
+  .card__list, .about__list {
+    margin-left: 1.25rem;
+    color: var(--text-color);
+  }
+  
+  .card__item, .about__item {
+    list-style: disc;
+  }
+  
+  .card__buttons, .description__buttons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  
+  .card__buttons .btn {
+    padding: .65rem 1.25rem;
+  }
+  
+  .card__buttons .btn span {
+      font-size: 1rem;
+  }
+  
+  .card__body .technologies__list {
+    gap: .75rem;
+  }
+  
+  .card__body .technologies__item {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .card__body .technologies__logo {
+    height: 2rem;
+  }
+  
+  .projects .btn {
+    width: auto;
+    margin: auto;
+  }
+
+
+
+
+
 footer{
     margin-bottom: 5rem;
 }
@@ -273,88 +363,176 @@ footer p{
     padding: 1rem;
 }
 
-@media(min-width: 768px){
-    .header{
-        position: fixed;
-        border-bottom: 1px solid var(--primary-border-color);
-        padding: 1rem 6rem;
-        background: var(--primary-bg-color);
+
+
+/* Responsividade */
+@media (min-width: 768px) {
+    .header {
+      position: fixed;
+      border-bottom: 1px solid var(--primary-border-color);
+      padding: 1rem 6rem;
+      background: var(--primary-bg-color);
     }
-    .nav--mobile{
-        display: none;
+  
+    .nav--mobile {
+      display: none;
     }
-    .header__nav{
-        display: flex;
+  
+    .header__nav {
+      display: flex;
     }
+  
     .header__nav,
-    .header__toggle{
-        min-width: 30%;
+    .header__toggle {
+      min-width: 30%;
     }
-    h1{
-        font-size: 4rem;
+  
+    h1 {
+      font-size: 5rem;
     }
-    main{
-        padding: 8rem 6rem 4rem 6rem;
-
+  
+    h2 {
+      font-size: 3rem;
+      letter-spacing: .4rem;
     }
-    .main__content1{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+  
+    main, .projects, .about {
+      padding: 8rem 6rem 4rem 6rem;
     }
-    .technologies{
-        padding: 6.25rem 6rem 2rem 6rem;
-        margin-top: -6rem;
+  
+    .contact {
+      padding: 6rem;
     }
-    footer{
-        margin: 0;
+    .contact p {
+      width: 80%;
     }
-}
-
-@media (min-width: 1200px){
-    main{
-        padding: 12rem 6rem 2rem;
+  
+    .main__content1 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
-    .main__content1 .btn{
-        width: auto;
+  
+    .technologies {
+      padding: 6.25rem 6rem 2rem 6rem;
+      margin-top: -6rem;
     }
-    .technologies{
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 10rem 6rem 4rem 6rem;
+  
+    footer {
+      margin: 0;
     }
-    .technologies h2{
-        font-size: 3.5rem;
-        width: 60%;
+  }
+  
+  @media (min-width: 992px) {
+    .projects__card {
+      flex-direction: row;
     }
-    .technologies__list{
-        gap: 1rem;
+  
+    .projects__card.card--reverse {
+      flex-direction: row-reverse;
+      justify-content: space-between;
     }
-    .technologies__item{
-        width: 6rem;
-        height: 6rem;
+    
+    .card__cover {
+      width: 55%;
     }
-    .technologies__logo{
-        height: 3rem;
+  
+    .about {
+      gap: 5rem;
     }
-}
-
-@media (min-width: 1400px){
-    h1{
-        font-size: 6.25rem;
+  
+    .about__content1, .about__content2 {
+      display: grid;
+      grid-template-columns: 34% 60%;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 4rem;
     }
-    p{
-        font-size: 1.5rem;
+  
+    .about__description h2 {
+      text-align: left;
     }
-    .header{
-        padding: 1rem 15rem;
+  
+    .description__buttons {
+      justify-content: flex-start;
     }
-    main{
-        padding: 12rem 15rem 2rem;
-
+  }
+  
+  @media (min-width: 1200px) {
+  
+    h2 {
+      font-size: 4rem;
     }
-    .technologies{
-        padding: 10rem 15rem 4rem;
+  
+    h3 {
+      font-size: 2.5rem;
     }
-
-}
+  
+    main {
+      padding: 12rem 6rem 2rem;
+    }
+  
+    .main__content1 .btn {
+      width: auto;
+    }
+  
+    .technologies {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10rem 6rem 4rem;
+    }
+  
+    .technologies h2 {
+      font-size: 3rem;
+      width: 55%;
+    }
+  
+    .technologies__list {
+      gap: 1rem;
+    }
+  
+    .technologies__item {
+      width: 6rem;
+      height: 6rem;
+    }
+    
+    .technologies__logo {
+      height: 3rem;
+    }
+  
+    p, span, li {
+      font-size: 1.15rem;
+    }
+  
+    .card__buttons .btn,
+    .description__buttons .btn {
+      width: auto;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    h1 {
+      font-size: 6.25rem;
+    }
+  
+    h2 {
+      font-size: 4.5rem;
+    }
+  
+    h3 {
+      font-size: 3.25rem;
+    }
+  
+    .header {
+      padding: 1rem 15rem;
+    }
+  
+    main {
+      padding: 12rem 15rem 2rem;
+    }
+    
+    .technologies, .projects, .about {
+      padding: 10rem 15rem 4rem;
+    }
+  
+  }
